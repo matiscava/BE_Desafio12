@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Clase 12</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <h2 class="titulo">PRODUCTOS</h2>
+    <form id="productForm" class="contenedorProductos">
+        <label for="title">Nombre del Producto:</label>
+        <input type="text" required="required" name="title" id="title" class='inputForm' placeholder="Ingrese el nombre del producto">
+        <label for="precio">Precio del Producto:</label>
+        <input type="number" required="required" name="price" id="price" class='inputForm' placeholder="Ingrese el precio del producto">
+        <label for="thumbnail">Link a la imagen del Producto:</label>
+        <input type="text" required="required" name="thumbnail" id="thumbnail" class='inputForm' placeholder="Ingrese el link de la imagen del producto">
+        <input type="submit" value="Cargar Producto" class='btnLink btnLink--form'>
+    </form>
+
+    <div id="productos" class="contenedorProductos"></div>
+    
+    <div class="contenedorProductos contenedorProductos--chat">
+        <h2 class="titulo">CHAT</h2>
+        <form id="chatForm" class="contendorProductos">
+            <input type="email" name="email" id="email" required="required" placeholder="pirulo@hochimail.com">
+            <div id="chat"></div>
+            <input type="text" name="mensaje" id="mensaje" required="required" placeholder="Ingres{a un mensaje...">
+            <input type="submit" value="Enviar!" class="btnLink btnLink--chat">
+        </form>
+    </div>
+    
+</body>
+</html>
