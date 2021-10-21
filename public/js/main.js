@@ -49,15 +49,8 @@ const cargarProducto = (e) => {
 
 const cargarMensaje = (e)=> {
     e.preventDefault();
-    const fechaActual = new Date;
-    const day = ("0"+fechaActual.getDate()).slice(-2);
-    const month = ("0"+fechaActual.getMonth()).slice(-2);
-    const year = fechaActual.getFullYear();
-    const hours = ("0"+fechaActual.getHours()).slice(-2);
-    const minutes = ("0"+fechaActual.getMinutes()).slice(-2);
-    const seconds = ("0"+fechaActual.getSeconds()).slice(-2);
-
-    const fecha = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+   
+    const fecha = new Date().toLocaleString();
     const mensaje = {
         user: document.getElementById('email').value,
         message: document.getElementById('mensaje').value,
