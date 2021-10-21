@@ -25,7 +25,8 @@ io.on('connection', async (socket)=>{
     socket.on('new-product', (data) => {
        productos.save(data);
        productsList.push(data);
-    }).emit('products', productsList);
+        socket.emit('products', productsList);
+    })
 
     const historialMensajes = await chat.getAll(); 
     socket.emit('messages', historialMensajes);
@@ -33,8 +34,8 @@ io.on('connection', async (socket)=>{
     socket.on('new-message', (data) => {
         chat.save(data);
         historialMensajes.push(data); 
-        
-    }).emit('messages', historialMensajes);
+        socket.emit('messages', historialMensajes);
+    })
 
 })
 
