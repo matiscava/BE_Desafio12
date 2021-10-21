@@ -13,7 +13,7 @@ body{
 .contenedorProductos{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: stretch;
     width: 60%;
     min-width: max-content;
     margin: 15px;
@@ -27,11 +27,15 @@ body{
     margin: 20px;
     padding: 10px;
     box-shadow: 0 0 10px 5px #958b8b ;
-    width: 400px;
 }
 .productoImagen{
     width: 120px;
     margin-right: 20px;
+}
+.productoTextos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .productoTitulo{
     color: cornsilk;
@@ -46,11 +50,6 @@ body{
     font-size: 18px;
     margin: 0;
     margin-top: auto;
-}
-.productoTextos{
-    width: 260px;
-    display: flex;
-    flex-direction: column;
 }
 
 .btnLink{
