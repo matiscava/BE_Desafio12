@@ -15,18 +15,18 @@ module.exports = class ChatSqlite {
             });
         })
         .catch((error) => {console.error(error);throw error;})
-        .finally(() => knex.destroy())
-        // console.log('Listado',listado);
+        // .finally(() => knex.destroy())
         return listado;
     }
-    async save() {
-        const data = {message: 'Segunda prueba del Desafio',
-        user: 'matiscava@hotmail.com',
-        date: '20/09/2021 15:04:54'}
-        console.log('Prueba',data);
+    async save (data) {
         await knex(this.table).insert(data)
                 .then(() => console.log('Data Inserted'))
                 .catch((error) => {console.error(error);throw error;})
-                .finally(() => knex.destroy())
+                // .finally(() => knex.destroy())
+    }
+    async deleteById (id){
+        await knex(this.table).where('id',id).del()
+                .then(() => console.log('Data delted'))
+                .catch((error) => {console.error(error);throw error;})
     }
 }

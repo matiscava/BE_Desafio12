@@ -1,17 +1,15 @@
 const express = require('express');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer } = require('socket.io');
-const ProductoFS = require('./classes/Producto');
-const { connectSqlite } = require('./options/sqlite3');
+const ProductoDB = require('./classes/ProductoDB');
 const ChatSqlite = require('./classes/Chat');
 
-const knex = require('knex')(connectSqlite);
 
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-const productos = new ProductoFS('./db/productos.json');
+const productos = new ProductoDB('products');
 const chat = new ChatSqlite('chats')
 
 app.use(express.static('./public'));
@@ -31,13 +29,12 @@ io.on('connection', async (socket)=>{
        productsList.push(data);
         io.sockets.emit('products', productsList);
     })
-
     const historialMensajes = await chat.getAll();
 
     socket.emit('messages', historialMensajes);
 
     socket.on('new-message', (data) => {
-        chat.save();
+        chat.save(data);
         historialMensajes.push(data); 
         io.sockets.emit('messages', historialMensajes);
     })
