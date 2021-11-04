@@ -1,47 +1,47 @@
 const fs = require('fs');
-module.exports = class ObjetoFS {
+module.exports = class ProductoFS {
 
     constructor ( archivo ) {
         this.archivo = archivo;
     }
     async getAll(){ 
         const data = await fs.promises.readFile(`./${this.archivo}` );
-        const objeto = JSON.parse(data);
-        return objeto;
+        const producto = JSON.parse(data);
+        return producto;
     }
     async getById (idNum) {
-        const objeto = await this.getAll()
-        const objetoFiltrado = objeto.filter(obj => obj.id === idNum);
-        if (objetoFiltrado[0]===undefined) {
-        //  return {error: 'objeto no encontrado'}
+        const producto = await this.getAll()
+        const productoFiltrado = producto.filter(obj => obj.id === idNum);
+        if (productoFiltrado[0]===undefined) {
+        //  return {error: 'producto no encontrado'}
         return
         }else{
-         return objetoFiltrado[0];
+         return productoFiltrado[0];
         }        
     }
-    async save(objetoNuevo){
-        const objeto = await this.getAll();
+    async save(productoNuevo){
+        const producto = await this.getAll();
         let nextID = 1
         let agregarData;
-        if(objeto.length===0){
-            agregarData= {...objetoNuevo, id: nextID}
+        if(producto.length===0){
+            agregarData= {...productoNuevo, id: nextID}
         }else{
-            for (let i=0;i<objeto.length ;i++) {
-                while( objeto[i].id >= nextID ){
+            for (let i=0;i<producto.length ;i++) {
+                while( producto[i].id >= nextID ){
                     nextID++;
                 }
             }
-            agregarData= {...objetoNuevo, id: nextID}
+            agregarData= {...productoNuevo, id: nextID}
         }
-        objeto.push(agregarData);
-        const dataToJSON = JSON.stringify(objeto,null,2);
+        producto.push(agregarData);
+        const dataToJSON = JSON.stringify(producto,null,2);
         fs.writeFileSync(`./${this.archivo}` , dataToJSON);
     }
     async deleteById(idNum){
-        const objeto = await this.getAll();
+        const producto = await this.getAll();
 
-        const objetoFiltrado = objeto.filter(obj => obj.id !== idNum);
-        const dataToJSON = JSON.stringify(objetoFiltrado,null,2);
+        const productoFiltrado = producto.filter(obj => obj.id !== idNum);
+        const dataToJSON = JSON.stringify(productoFiltrado,null,2);
         fs.writeFileSync(`./${this.archivo}` , dataToJSON);
     }
     async update(id,elemento){

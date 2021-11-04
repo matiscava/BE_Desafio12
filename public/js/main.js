@@ -1,5 +1,3 @@
-// const moment = require("moment");
-
 const socket = io.connect();
 
 const renderProductos = (productos) => {
