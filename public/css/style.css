@@ -37,6 +37,24 @@ body{
     display: flex;
     flex-direction: column;
 }
+.productoDescripcion{
+    margin: 10px 15px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: aliceblue;
+}
+.productoTextoValores{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    margin-top: 15px;
+}
+.productoStock{
+    color: #686868;
+    font-style: italic;
+    margin: 5px;
+}
+
 .productoTitulo{
     color: cornsilk;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -19,23 +19,33 @@ module.exports = class ProductoDB {
     }
     async getById (dataId) {
         const item = [];
-        await knex.from(this.table).select('id').where(dataId)
+        await knex.from(this.table).select('*').where("id",dataId)
                     .then((rows) => {
                         rows.forEach((row) => {
                             item.push(row);
                         })
                     })
                     .catch((error) => {console.error(error);throw error;})
+        return item;
     }
     async save(data) {
-        await knex(this.table).insert(data)
+        
+        const fecha = new Date().toLocaleString();
+        const agregarData = {...data,timestamp:fecha}
+        
+        await knex(this.table).insert(agregarData)
         .then(() => console.log('Data Inserted'))
         .catch((error) => {console.error(error);throw error;})
         // .finally(() => knex.destroy())
     }
-    // async update (dataId, data) {
+    async update (dataId, data) {
+        const fecha = new Date().toLocaleString();
+        const agregarData = {...data,timestamp:fecha}
 
-    // }
+        knexMySQL.from('products').where('id', dataId).update(agregarData)
+        .then(() => console.log('Data updated'))
+        .catch((error) => {console.error(error);throw error;})
+    }
     async deleteById (dataId) {
         await knex(this.table).where('id',dataId).del()
         .then(() => console.log('Data delted'))

@@ -6,10 +6,16 @@ const renderProductos = (productos) => {
             <div class='producto' id='producto-${producto.id}'>
                 <img src='${producto.thumbnail}' alt='Imagen de ${producto.title}' class='productoImagen'>
                 <div class='productoTextos'>
-                    <p class='productoTitulo'>${producto.title}</p>
-                    <p class='productoPrecio'>$ ${producto.price}</p>
+                    <div class='productoTextoCuerpo'>
+                        <p class='productoTitulo'>${producto.title}</p>
+                        <p class='productoDescripcion'>${producto.description}</p>
                     </div>
+                    <div class='productoTextoValores'>
+                        <p class='productoStock'>Stock: ${producto.stock}</p>
+                        <p class='productoPrecio'>$ ${producto.price}</p>
                     </div>
+                </div>
+            </div>
                     `)
                 }).join(' ');
     document.getElementById('productos').innerHTML= html;
@@ -44,6 +50,10 @@ const cargarProducto = (e) => {
     
     return false;
 }
+
+// const seleccionarProducto = (id) => {
+//     socket.emit('productSelected',id);
+// }
 
 const cargarMensaje = (e)=> {
     e.preventDefault();

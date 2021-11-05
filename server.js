@@ -1,6 +1,6 @@
 const express = require('express');
 const { Server: HttpServer } = require('http');
-const { Server: IOServer } = require('socket.io');
+const { Server: IOServer, Socket } = require('socket.io');
 const ProductoDB = require('./classes/ProductoDB');
 const ChatSqlite = require('./classes/Chat');
 
@@ -18,6 +18,7 @@ app.get('/', ( req , res ) => {
     res.sendFile('index.html', {roo: __dirname})
 });
 
+
 io.on('connection', async (socket)=>{
     console.log('Se ha conectado un nuevo Usuario');
     
@@ -25,8 +26,8 @@ io.on('connection', async (socket)=>{
     socket.emit('products', productsList);
 
     socket.on('new-product', (data) => {
-       productos.save(data);
-       productsList.push(data);
+        productos.save(data);
+        productsList.push(data);
         io.sockets.emit('products', productsList);
     })
     const historialMensajes = await chat.getAll();
@@ -41,7 +42,7 @@ io.on('connection', async (socket)=>{
 
 })
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const connectedServer = httpServer.listen(PORT, () => {
     console.log(`Server funcionando en el puerto ${PORT}`);
 })
