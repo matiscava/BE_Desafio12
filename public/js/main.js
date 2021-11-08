@@ -42,11 +42,15 @@ const cargarProducto = (e) => {
         title: document.getElementById('title').value,
         price: parseInt(document.getElementById('price').value),
         thumbnail: document.getElementById('thumbnail').value,
+        description: document.getElementById('description').value,
+        stock: parseInt(document.getElementById('stock').value),
     }
     socket.emit('new-product', producto);
     document.getElementById('title').value = '';
     document.getElementById('price').value = '';
     document.getElementById('thumbnail').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('stock').value = '';
     
     return false;
 }
