@@ -39,8 +39,17 @@ io.on('connection', async (socket)=>{
         historialMensajes.push(data); 
         io.sockets.emit('messages', historialMensajes);
     })
-
+    console.log("url: " + socket.handshake.url);
 })
+
+
+app.get('/api/productos-test', async ( req , res ) => {
+    const productsList = await productos.getRandom();
+    // socket.emit('products', productsList);
+    // res.send(productsList)
+    res.sendFile('index.html', {roo: __dirname})
+
+});
 
 const PORT = process.env.PORT || 8080;
 const connectedServer = httpServer.listen(PORT, () => {

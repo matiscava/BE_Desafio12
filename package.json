@@ -13,7 +13,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "knex": "^0.95.13",
+    "faker": "^5.5.3",
+    "knex": "^0.95.14",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.14",
