@@ -15,6 +15,7 @@ module.exports = class ProductoDB {
         })
         .catch((error) => {console.error(error);throw error;})
         // .finally(() => knex.destroy())
+        console.log(listado);
         return listado;
     }
     async getById (dataId) {
