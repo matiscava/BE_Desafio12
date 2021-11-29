@@ -22,8 +22,10 @@ const renderProductos = (productos) => {
 }
 
 const renderMensajes = (mensajes) => {
-    mensajes.reverse();
-    const html = mensajes.map((mensaje) => {
+    console.log('se',typeof mensajes);
+    Object.keys(mensajes).reverse();
+    console.log(Object.keys(mensajes).reverse())
+    const html = Object.keys(mensajes).map((mensaje) => {
         return(`
             <div class='mensaje' id='mensaje-${mensaje.id}'>
                 <p class='mensajetext mensajetext--user'>${mensaje.user} </p>
@@ -64,10 +66,16 @@ const cargarMensaje = (e)=> {
    
     const fecha = new Date().toLocaleString();
     const mensaje = {
-        user: document.getElementById('email').value,
-        message: document.getElementById('mensaje').value,
-        date: fecha 
-    }
+        author: {id: document.getElementById('email').value,
+        nombre: document.getElementById('nombre').value,
+        apellido: document.getElementById('apellido').value,
+        edad: parseInt(document.getElementById('edad').value),
+        alias: document.getElementById('alias').value,
+        avatar: document.getElementById('avatar').value,
+        date: fecha },
+        text: document.getElementById('mensaje').value
+    };
+    
     document.getElementById('mensaje').value='';
     socket.emit('new-message', mensaje);
 
@@ -84,6 +92,18 @@ socket.on('products', (data)=>{
     renderProductos(data);
 })
 
+const schemaAuthor = new normalizr.schema.Entity('author', {}, {idAttribute: 'email'})
+
+const schemaMessage = new normalizr.schema.Entity('message', {
+    author: schemaAuthor
+})
+
+const schemaMessages = new normalizr.schema.Entity('messages', {
+    messages: [schemaMessage]
+})
+
 socket.on('messages', (data) => {
-    renderMensajes(data)
+    const dataDenormalized = normalizr.denormalize(data.result, schemaMessages, data.entities)
+    console.log(dataDenormalized);
+    renderMensajes(dataDenormalized)
 })

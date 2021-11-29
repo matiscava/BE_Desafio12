@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio Clase 12</title>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
     <script defer src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,6 +33,12 @@
         <h2 class="titulo">CHAT</h2>
         <form id="chatForm" class="contendorProductos">
             <input type="email" name="email" id="email" required="required" placeholder="pirulo@hochimail.com">
+            <input type="text" name="nombre" id="nombre" required="required" placeholder="Ingrese su nombre">
+            <input type="text" name="apellido" id="apellido" required="required" placeholder="Ingrese su apellido">
+            <input type="number" name="edad" id="edad" required="required" placeholder="Ingrese su edad">
+            <input type="text" name="alias" id="alias" required="required" placeholder="Ingrese su alias">
+            <input type="text" name="avatar" id="avatar" required="required" placeholder="Ingrese el link a su avatar">
+
             <div id="chat"></div>
             <input type="text" name="mensaje" id="mensaje" required="required" placeholder="Ingres{a un mensaje...">
             <input type="submit" value="Enviar!" class="btnLink btnLink--chat">
