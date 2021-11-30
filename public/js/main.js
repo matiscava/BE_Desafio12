@@ -20,11 +20,14 @@ const renderProductos = (productos) => {
                 }).join(' ');
     document.getElementById('productos').innerHTML= html;
 }
-
+const counterNormalize = (normalizado, sinNormalizar) => {
+    const porcentaje = parseFloat((normalizado*100)/sinNormalizar).toFixed(2);
+    const html = `<p class="textoPorcentual">Procentaje de compresión : ${porcentaje}%</p>`;
+    document.getElementById('contadorNomalize').innerHTML = html;
+}
 const renderMensajes = (mensajes) => {
     mensajes.messages.reverse()
 
-    console.log('Prueba',mensajes.messages)
     const html = mensajes.messages.map((mensaje) => {
         return(`
             <div class='mensaje' id='mensaje-${mensaje.id}'>
@@ -60,9 +63,7 @@ const cargarProducto = (e) => {
     return false;
 }
 
-// const seleccionarProducto = (id) => {
-//     socket.emit('productSelected',id);
-// }
+
 
 const cargarMensaje = (e)=> {
     e.preventDefault();
@@ -107,5 +108,10 @@ const schemaMessages = new normalizr.schema.Entity('messages', {
 
 socket.on('messages', (data) => {
     const dataDenormalized = normalizr.denormalize(data.result, schemaMessages, data.entities)
+    const dataLength = JSON.stringify(data).length
+    const dataDenomalizedLength = JSON.stringify(dataDenormalized).length
+
+    counterNormalize(dataLength,dataDenomalizedLength)
+
     renderMensajes(dataDenormalized)
 })

@@ -1,22 +1,22 @@
 const express = require('express');
 const faker = require('faker');
+require('dotenv').config();
 const { Server: HttpServer } = require('http');
 const { Server: IOServer, Socket } = require('socket.io');
-const ProductoDB = require('./classes/ProductoDB');
-const ProductoFS = require('./classes/ProductoFS');
 
-const ChatSqlite = require('./classes/Chat');
-const ChatFS = require('./classes/ChatFS')
-var bodyParser = require('body-parser');
+const { productDao , chatDao } = require('./src/daos');
+
+const productos = new productDao;
+const chat = new chatDao;
+
+ 
+let bodyParser = require('body-parser');
 
 
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-// const productos = new ProductoDB('products');
-const productos = new ProductoFS('./db/productos.json');
-const chat = new ChatFS('./db/chat.json')
 
 app.use(bodyParser.json()); // body en formato json
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,11 +39,11 @@ app.get( '/api/productos-test', ( req , res ) => {
 io.on('connection', async (socket)=>{
     console.log('Se ha conectado un nuevo Usuario');
     
-    const productsList = await productos.getAll();
+    const productsList = await productos.getProducts();
     socket.emit('products', productsList);
 
     socket.on('new-product', (data) => {
-        productos.save(data);
+        productos.saveProduct(data);
         productsList.push(data);
         io.sockets.emit('products', productsList);
     })
