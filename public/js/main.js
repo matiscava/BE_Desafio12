@@ -23,6 +23,8 @@ const renderProductos = (productos) => {
 
 const renderMensajes = (mensajes) => {
     mensajes.messages.reverse()
+
+    console.log('Prueba',mensajes.messages)
     const html = mensajes.messages.map((mensaje) => {
         return(`
             <div class='mensaje' id='mensaje-${mensaje.id}'>
@@ -104,8 +106,6 @@ const schemaMessages = new normalizr.schema.Entity('messages', {
 })
 
 socket.on('messages', (data) => {
-    console.log(data);
     const dataDenormalized = normalizr.denormalize(data.result, schemaMessages, data.entities)
-    console.log('asasaa',dataDenormalized);
     renderMensajes(dataDenormalized)
 })

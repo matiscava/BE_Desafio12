@@ -51,7 +51,6 @@ io.on('connection', async (socket)=>{
     socket.on('new-message', async (data) => {
         const nuevaData = await chat.save(data);
         const nuevoHistorial = await chat.getAll();
-        Object.keys(historialMensajes).push(nuevaData)
         io.sockets.emit('messages', nuevoHistorial);
     })
 

@@ -25,30 +25,17 @@
     },
     "text": "esto es una prueba"
   },
-  "2": {
-    "author": {
-      "id": "matiscava@hotmail.com",
-      "nombre": "Matías Nicolás",
-      "apellido": "Scavarelli Gutierrez",
-      "edad": "31",
-      "alias": "asca",
-      "avatar": "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png",
-      "date": "29/11/2021 14:13:06"
-    },
-    "text": "ascascf",
-    "id": 3
-  },
   "agregarData": {
     "author": {
-      "id": "fulanito@mail.com",
-      "nombre": "Fulano",
-      "apellido": "De Tal",
-      "edad": "54",
-      "alias": "Fulanito",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZkMBxTOlwDlphZ5d2fWi1-buHfpr039ynCw&usqp=CAU",
-      "date": "29/11/2021 14:13:47"
+      "id": "aasssss@hotmail.com",
+      "nombre": "Matías Nicolás",
+      "apellido": "Scavarelli Gutierrez",
+      "edad": "222",
+      "alias": "asca",
+      "avatar": "https://notife.com/wp-content/uploads/2021/08/E8qcbSpX0AE0_Nn.jpg",
+      "date": "29/11/2021 15:44:32"
     },
-    "text": "ddddddd",
+    "text": "ascaaaa",
     "id": 3
   }
 }

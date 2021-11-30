@@ -9,6 +9,7 @@ module.exports = class ObjetoFS {
         try{
             const data = await fs.promises.readFile(`./${this.archivo}` );
             const  messages = JSON.parse(data);
+            console.log(messages);
             return normalizeMessages({id: 'messages', messages});
 
         } catch (error) {
