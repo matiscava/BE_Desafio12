@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { normalizeMessages } = require('./../../options/normalizador');
+const util = require('util');
+
 
 module.exports = class FileContainer {
 
@@ -15,7 +17,11 @@ module.exports = class FileContainer {
         try{
             const data = await fs.promises.readFile(`./${this.archivo}` );
             const  messages = JSON.parse(data);
-            console.log(messages);
+
+            console.log(util.inspect(messages, false, 12 ,true));
+            const messageNormalize = normalizeMessages({id: 'messages', messages});
+            console.log(util.inspect(messageNormalize, false, 12 ,true));
+
             return normalizeMessages({id: 'messages', messages});
 
         } catch (error) {

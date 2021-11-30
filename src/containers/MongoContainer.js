@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const options = require('./../../options/options');
 const { normalizeMessages } = require('./../../options/normalizador');
-
+const util = require('util');
 
 class MongoContainer {
   constructor(collection, schema) {
@@ -26,9 +26,13 @@ class MongoContainer {
   
   async getAll() {
     try {
-      const messages = await this.collection.find({},{__v:0})
-      console.log('mensajes',normalizeMessages({id: 'messages', messages}));
-      return normalizeMessages({id: 'messages', messages});
+      const messages = await this.collection.find({},{__v:0}).lean()
+
+      console.log(util.inspect(messages, false, 12 ,true));
+
+      const messageNormalize = normalizeMessages({id: 'messages', messages});
+      console.log(util.inspect(messageNormalize, false, 12 ,true));
+      return messageNormalize;
     } catch (error) {
       console.error('Error:', error);
     }

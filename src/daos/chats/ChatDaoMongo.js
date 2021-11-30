@@ -5,7 +5,7 @@ const MongoContainer = require("../../containers/MongoContainer");
 class ChatDaoMongo extends MongoContainer {
   constructor() {
     super('chats', new Schema({
-        author: {type: Array, required:true},
+        author: {type: Object, required:true},
         text: {type: String, required: true}
     }))
   }

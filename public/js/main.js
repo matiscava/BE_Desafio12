@@ -26,6 +26,7 @@ const counterNormalize = (normalizado, sinNormalizar) => {
     document.getElementById('contadorNomalize').innerHTML = html;
 }
 const renderMensajes = (mensajes) => {
+    console.log(mensajes);
     mensajes.messages.reverse()
 
     const html = mensajes.messages.map((mensaje) => {
