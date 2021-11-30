@@ -1,20 +1,54 @@
-[
-  {
-    "user": "matiscava@hotmail.com",
-    "message": "Provando el chat del Desafio",
-    "date": "20/09/2021 15:03:18",
-    "id": 1
+{
+  "0": {
+    "id": 0,
+    "author": {
+      "id": "ejemploamano@gmail.com",
+      "nombre": "ejemplo",
+      "apellido": "apellido",
+      "edad": 21,
+      "alias": "ejemplo21",
+      "date": "3/11/2021 20:57:50",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/147/147140.png"
+    },
+    "text": "esto es una prueba"
   },
-  {
-    "user": "matiscava@hotmail.com",
-    "message": "Segunda prueba del Desafio",
-    "date": "20/09/2021 15:04:54",
-    "id": 2
+  "1": {
+    "id": 1,
+    "author": {
+      "id": "ejemploamano@gmail.com",
+      "nombre": "ejemplo",
+      "apellido": "apellido",
+      "edad": 21,
+      "alias": "ejemplo21",
+      "date": "3/11/2021 20:57:50",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/147/147140.png"
+    },
+    "text": "esto es una prueba"
   },
-  {
-    "user": "pirulo@outlook.con",
-    "message": "a ver si se carga de una",
-    "date": "21/09/2021 09:39:00",
+  "2": {
+    "author": {
+      "id": "matiscava@hotmail.com",
+      "nombre": "Matías Nicolás",
+      "apellido": "Scavarelli Gutierrez",
+      "edad": "31",
+      "alias": "asca",
+      "avatar": "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png",
+      "date": "29/11/2021 14:13:06"
+    },
+    "text": "ascascf",
+    "id": 3
+  },
+  "agregarData": {
+    "author": {
+      "id": "fulanito@mail.com",
+      "nombre": "Fulano",
+      "apellido": "De Tal",
+      "edad": "54",
+      "alias": "Fulanito",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZkMBxTOlwDlphZ5d2fWi1-buHfpr039ynCw&usqp=CAU",
+      "date": "29/11/2021 14:13:47"
+    },
+    "text": "ddddddd",
     "id": 3
   }
-]
+}

@@ -1,8 +1,11 @@
 const express = require('express');
+const faker = require('faker');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer, Socket } = require('socket.io');
 const ProductoDB = require('./classes/ProductoDB');
 const ChatSqlite = require('./classes/Chat');
+const ChatFS = require('./classes/ChatFS')
+var bodyParser = require('body-parser');
 
 
 const app = express();
@@ -10,14 +13,25 @@ const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
 const productos = new ProductoDB('products');
-const chat = new ChatSqlite('chats')
+const chat = new ChatFS('./db/chat.json')
+
+app.use(bodyParser.json()); // body en formato json
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('./public'));
 
 app.get('/', ( req , res ) => {
     res.sendFile('index.html', {roo: __dirname})
 });
-
+app.get( '/api/productos-test', ( req , res ) => {
+    const productsList = [...new Array(5)].map((_, index) => ({
+        id:index+1,
+        title: faker.commerce.product(),
+        price: faker.commerce.price(),
+        thumbnail: faker.image.imageUrl()
+    }))
+    res.json(productsList);
+})
 
 io.on('connection', async (socket)=>{
     console.log('Se ha conectado un nuevo Usuario');
@@ -34,10 +48,11 @@ io.on('connection', async (socket)=>{
 
     socket.emit('messages', historialMensajes);
 
-    socket.on('new-message', (data) => {
-        chat.save(data);
-        historialMensajes.push(data); 
-        io.sockets.emit('messages', historialMensajes);
+    socket.on('new-message', async (data) => {
+        const nuevaData = await chat.save(data);
+        const nuevoHistorial = await chat.getAll();
+        // Object.keys(historialMensajes).push(nuevaData)
+        io.sockets.emit('messages', nuevoHistorial);
     })
     console.log("url: " + socket.handshake.url);
 })
@@ -50,6 +65,16 @@ app.get('/api/productos-test', async ( req , res ) => {
     res.sendFile('index.html', {roo: __dirname})
 
 });
+app.delete( '/' , async (req ,res) => {
+    await chat.deleteAll();
+    res.send('chat deleted')
+})
+
+app.post( '/' , async (req ,res) => {
+    const mensaje = req.body;
+    await chat.save(mensaje);
+    res.send('chat uploaded')
+})
 
 const PORT = process.env.PORT || 8080;
 const connectedServer = httpServer.listen(PORT, () => {

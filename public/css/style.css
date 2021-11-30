@@ -135,8 +135,22 @@ body{
     margin: 10px 0;
     border-top: 1px solid #bba9a9;
 }
+.mensaje{
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
+}
 .mensajetext{
     display: inline-block;
+}
+.mensajeAvatar{
+    width: 30px;
+    margin-right: 10px;
+}
+.contenedorTexto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .mensajetext--user{
     color: blue;
