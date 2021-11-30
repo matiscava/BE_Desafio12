@@ -38,17 +38,95 @@
     "text": "ascascf",
     "id": 3
   },
-  "agregarData": {
+  "3": {
     "author": {
-      "id": "fulanito@mail.com",
-      "nombre": "Fulano",
-      "apellido": "De Tal",
-      "edad": "54",
-      "alias": "Fulanito",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZkMBxTOlwDlphZ5d2fWi1-buHfpr039ynCw&usqp=CAU",
-      "date": "29/11/2021 14:13:47"
+      "id": "fu@anisl",
+      "nombre": "asas",
+      "apellido": "acad",
+      "edad": "22",
+      "alias": "acad",
+      "avatar": "https://www.infobae.com/new-resizer/6lXIe1psSI0sdHu3wdvsT5knRYE=/1200x900/filters:format(jpg):quality(85)//arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/GHSLR4BROZA4DH3DET7JYTIA4U",
+      "date": "29/11/2021 22:34:41"
     },
-    "text": "ddddddd",
+    "text": "acasdee ss",
     "id": 3
+  },
+  "4": {
+    "author": {
+      "id": "fu@anisl",
+      "nombre": "asas",
+      "apellido": "acad",
+      "edad": "22",
+      "alias": "acad",
+      "avatar": "https://www.infobae.com/new-resizer/6lXIe1psSI0sdHu3wdvsT5knRYE=/1200x900/filters:format(jpg):quality(85)//arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/GHSLR4BROZA4DH3DET7JYTIA4U",
+      "date": "29/11/2021 22:34:47"
+    },
+    "text": "acsse ",
+    "id": 4
+  },
+  "5": {
+    "author": {
+      "id": "matiscava@hotmail.com",
+      "nombre": "ascas",
+      "apellido": "sss",
+      "edad": "22",
+      "alias": "ascsas",
+      "avatar": "https://www.google.com/search?q=salomone&rlz=1C1CHBF_esAR922AR922&sxsrf=AOaemvJMdxTZbsGkXMBKbTrUQC6If2BoHA:1638236122141&source=lnms&tbm=isch&sa=X&sqi=2&ved=2ahUKEwif4fiQ-b70AhVBSfEDHQFcAWUQ_AUoAXoECAIQAw&biw=1366&bih=625&dpr=1#imgrc=AxukfJoOjS2xRM",
+      "date": "29/11/2021 22:36:03"
+    },
+    "text": "ascsc dddssa ss",
+    "id": 5
+  },
+  "6": {
+    "author": {
+      "id": "matiscava@hotmail.com",
+      "nombre": "ascas",
+      "apellido": "sss",
+      "edad": "22",
+      "alias": "ascsas",
+      "avatar": "https://www.google.com/search?q=salomone&rlz=1C1CHBF_esAR922AR922&sxsrf=AOaemvJMdxTZbsGkXMBKbTrUQC6If2BoHA:1638236122141&source=lnms&tbm=isch&sa=X&sqi=2&ved=2ahUKEwif4fiQ-b70AhVBSfEDHQFcAWUQ_AUoAXoECAIQAw&biw=1366&bih=625&dpr=1#imgrc=AxukfJoOjS2xRM",
+      "date": "29/11/2021 22:36:12"
+    },
+    "text": "asa",
+    "id": 6
+  },
+  "7": {
+    "author": {
+      "id": "aaa@imlla",
+      "nombre": "aca",
+      "apellido": "sss",
+      "edad": "221",
+      "alias": "acad",
+      "avatar": "https://www.google.com/search?q=salomone&rlz=1C1CHBF_esAR922AR922&sxsrf=AOaemvJMdxTZbsGkXMBKbTrUQC6If2BoHA:1638236122141&source=lnms&tbm=isch&sa=X&sqi=2&ved=2ahUKEwif4fiQ-b70AhVBSfEDHQFcAWUQ_AUoAXoECAIQAw&biw=1366&bih=625&dpr=1#imgrc=AxukfJoOjS2xRM",
+      "date": "29/11/2021 22:36:32"
+    },
+    "text": "sss",
+    "id": 7
+  },
+  "8": {
+    "author": {
+      "id": "aaa@imlla",
+      "nombre": "aca",
+      "apellido": "sss",
+      "edad": "221",
+      "alias": "acad",
+      "avatar": "https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/SVSD6FFL2VETRCPRRYMRACMCC4.gif",
+      "date": "29/11/2021 22:37:19"
+    },
+    "text": "sacs",
+    "id": 8
+  },
+  "9": {
+    "author": {
+      "id": "amslcmlas@ksksk",
+      "nombre": "aca",
+      "apellido": "sss",
+      "edad": "221",
+      "alias": "acad",
+      "avatar": "https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/SVSD6FFL2VETRCPRRYMRACMCC4.gif",
+      "date": "29/11/2021 22:37:33"
+    },
+    "text": "sss",
+    "id": 9
   }
 }

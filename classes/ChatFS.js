@@ -44,7 +44,7 @@ module.exports = class ObjetoFS {
                 agregarData= {...objetoNuevo, id: nextID}
             }
             
-            const nuevaData=Object.assign(messages,{agregarData});
+            const nuevaData=Object.assign(messages,{[nextID]:agregarData});
             // const nuevaData={...messages,...agregarData};
             const dataToJSON = JSON.stringify(nuevaData,null,2);
             fs.writeFileSync(`./${this.archivo}` , dataToJSON);

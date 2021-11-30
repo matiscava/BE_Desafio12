@@ -3,6 +3,8 @@ const faker = require('faker');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer, Socket } = require('socket.io');
 const ProductoDB = require('./classes/ProductoDB');
+const ProductoFS = require('./classes/ProductoFS');
+
 const ChatSqlite = require('./classes/Chat');
 const ChatFS = require('./classes/ChatFS')
 var bodyParser = require('body-parser');
@@ -12,7 +14,8 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-const productos = new ProductoDB('products');
+// const productos = new ProductoDB('products');
+const productos = new ProductoFS('./db/productos.json');
 const chat = new ChatFS('./db/chat.json')
 
 app.use(bodyParser.json()); // body en formato json
