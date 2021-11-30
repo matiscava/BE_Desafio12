@@ -24,18 +24,5 @@
       "avatar": "https://cdn-icons-png.flaticon.com/512/147/147140.png"
     },
     "text": "esto es una prueba"
-  },
-  "agregarData": {
-    "author": {
-      "id": "aasssss@hotmail.com",
-      "nombre": "Matías Nicolás",
-      "apellido": "Scavarelli Gutierrez",
-      "edad": "222",
-      "alias": "asca",
-      "avatar": "https://notife.com/wp-content/uploads/2021/08/E8qcbSpX0AE0_Nn.jpg",
-      "date": "29/11/2021 15:44:32"
-    },
-    "text": "ascaaaa",
-    "id": 3
   }
 }

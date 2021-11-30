@@ -3,6 +3,8 @@ const faker = require('faker');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer, Socket } = require('socket.io');
 const ProductoDB = require('./classes/ProductoDB');
+const ProductoFS = require('./classes/ProductoFS');
+
 const ChatSqlite = require('./classes/Chat');
 const ChatFS = require('./classes/ChatFS')
 var bodyParser = require('body-parser');
@@ -12,7 +14,8 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-const productos = new ProductoDB('products');
+// const productos = new ProductoDB('products');
+const productos = new ProductoFS('./db/productos.json');
 const chat = new ChatFS('./db/chat.json')
 
 app.use(bodyParser.json()); // body en formato json
@@ -51,11 +54,20 @@ io.on('connection', async (socket)=>{
     socket.on('new-message', async (data) => {
         const nuevaData = await chat.save(data);
         const nuevoHistorial = await chat.getAll();
+        // Object.keys(historialMensajes).push(nuevaData)
         io.sockets.emit('messages', nuevoHistorial);
     })
-
+    console.log("url: " + socket.handshake.url);
 })
 
+
+app.get('/api/productos-test', async ( req , res ) => {
+    const productsList = await productos.getRandom();
+    // socket.emit('products', productsList);
+    // res.send(productsList)
+    res.sendFile('index.html', {roo: __dirname})
+
+});
 app.delete( '/' , async (req ,res) => {
     await chat.deleteAll();
     res.send('chat deleted')
